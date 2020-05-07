@@ -11,6 +11,8 @@ const computerHand = document.querySelector(".game-hands__computer");
 const scoreUser = document.querySelector("#scoreUser");
 const scoreComp = document.querySelector("#scoreComp");
 
+const gameTitle = document.querySelector(".game-title");
+
 let scoreYou = 0;
 let scoreComputer = 0;
 
@@ -61,14 +63,23 @@ let compareHands = (userChoise, compChoise) => {
 let determineWinner = (winner) => {
   if (winner === "user") {
     scoreUser.innerHTML = `${++scoreYou}`;
+    gameTitle.innerHTML = "you win";
   } else if (winner === "comp") {
     scoreComp.innerHTML = `${++scoreComputer}`;
+    gameTitle.innerHTML = "computer win";
   } else {
-    return;
+    gameTitle.innerHTML = "it's a tie!";
   }
 };
 
-startGame.addEventListener("click", hideShowScreen);
+startGame.addEventListener("click", () => {
+  hideShowScreen();
+  gameTitle.innerHTML = "Choose an option";
+  scoreYou = 0;
+  scoreComputer = 0;
+  scoreUser.innerHTML = `${scoreYou}`;
+  scoreComp.innerHTML = `${scoreComputer}`;
+});
 
 options.forEach((item) => item.addEventListener("click", playerChoise));
 
