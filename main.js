@@ -8,6 +8,12 @@ const options = document.querySelectorAll(".option");
 const userHand = document.querySelector(".game-hands__user");
 const computerHand = document.querySelector(".game-hands__computer");
 
+const scoreUser = document.querySelector("#scoreUser");
+const scoreComp = document.querySelector("#scoreComp");
+
+let scoreYou = 0;
+let scoreComputer = 0;
+
 let hideShowScreen = () => {
   header.classList.toggle("hide");
   game.classList.toggle("hide");
@@ -16,9 +22,13 @@ let hideShowScreen = () => {
 let playerChoise = (e) => {
   let userChoise = e.target.textContent;
   userHand.src = `img/${e.target.textContent}.png`;
+
   let compChoice = computerChoise();
   computerHand.src = `img/${compChoice}.png`;
-  compareHands(userChoise, compChoice);
+
+  let winner = compareHands(userChoise, compChoice);
+  console.log(winner);
+  determineWinner(winner);
 };
 
 let computerChoise = () => {
@@ -38,14 +48,24 @@ let compareHands = (userChoise, compChoise) => {
     (userChoise === "rock" && compChoise === "scissors") ||
     (userChoise === "scissors" && compChoise === "paper")
   )
-    console.log("user");
+    return "user";
   else if (
     (compChoise === "paper" && userChoise === "rock") ||
     (compChoise === "rock" && userChoise === "scissors") ||
     (compChoise === "scissors" && userChoise === "paper")
   )
-    console.log("comp");
-  else return console.log("nobody");
+    return "comp";
+  else return "nobody";
+};
+
+let determineWinner = (winner) => {
+  if (winner === "user") {
+    scoreUser.innerHTML = `${++scoreYou}`;
+  } else if (winner === "comp") {
+    scoreComp.innerHTML = `${++scoreComputer}`;
+  } else {
+    return;
+  }
 };
 
 startGame.addEventListener("click", hideShowScreen);
