@@ -14,9 +14,11 @@ let hideShowScreen = () => {
 };
 
 let playerChoise = (e) => {
+  let userChoise = e.target.textContent;
   userHand.src = `img/${e.target.textContent}.png`;
   let compChoice = computerChoise();
   computerHand.src = `img/${compChoice}.png`;
+  compareHands(userChoise, compChoice);
 };
 
 let computerChoise = () => {
@@ -28,6 +30,22 @@ let computerChoise = () => {
     case 3:
       return "scissors";
   }
+};
+
+let compareHands = (userChoise, compChoise) => {
+  if (
+    (userChoise === "paper" && compChoise === "rock") ||
+    (userChoise === "rock" && compChoise === "scissors") ||
+    (userChoise === "scissors" && compChoise === "paper")
+  )
+    console.log("user");
+  else if (
+    (compChoise === "paper" && userChoise === "rock") ||
+    (compChoise === "rock" && userChoise === "scissors") ||
+    (compChoise === "scissors" && userChoise === "paper")
+  )
+    console.log("comp");
+  else return console.log("nobody");
 };
 
 startGame.addEventListener("click", hideShowScreen);
