@@ -2,6 +2,8 @@ const startGame = document.querySelector("#start");
 const endGame = document.querySelector("#end");
 const header = document.querySelector(".header");
 const game = document.querySelector(".game");
+const result = document.getElementById("result");
+const modal = document.querySelector(".modal");
 
 const options = document.querySelectorAll(".option");
 
@@ -83,4 +85,21 @@ startGame.addEventListener("click", () => {
 
 options.forEach((item) => item.addEventListener("click", playerChoise));
 
-endGame.addEventListener("click", hideShowScreen);
+endGame.addEventListener("click", () => {
+  modal.style.display = "block";
+
+  if (scoreYou < scoreComputer) {
+    result.innerHTML = `
+      <h1 class="text-lose">You Lose :(</h1>`;
+  } else if (scoreYou > scoreComputer) {
+    result.innerHTML = `
+      <h1 class="text-lose">You Win :)</h1>`;
+  } else {
+    result.innerHTML = `
+      <h1 class="text-lose">it's a tie!</h1>`;
+  }
+  setTimeout(function () {
+    modal.style.display = "none";
+    hideShowScreen();
+  }, 1500);
+});
