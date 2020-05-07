@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3179bc), to(#11b5dd));
+    background: -o-linear-gradient(top, #3179bc 0%, #11b5dd 100%);
+    background: linear-gradient(to bottom, #3179bc 0%, #11b5dd 100%);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.header {
+    text-align: center;
+    height: 100vh;
+}
+
+.header-title {
+    margin: 270px 0 130px;
+    font-size: 5rem;
+}
+
+.title {
+    font-family: "Sarala", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow: 0px 3px 0px #b2a98f, 0px 14px 10px rgba(0, 0, 0, 0.15), 10px 8px 2px rgba(0, 0, 0, 0.1),
+        0px 34px 30px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+    position: relative;
+    display: inline-block;
+    min-width: 200px;
+    background: none;
+    outline: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: #333333;
+    font-family: "Sarala", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    -webkit-transition: color 0.9s, linear;
+    -o-transition: color 0.9s, linear;
+    transition: color 0.9s, linear;
+}
+
+.button span {
+    position: relative;
+    z-index: 1;
+    display: block;
+    min-width: 1em;
+    padding: 0.3em 2.5em;
+    border-radius: 2em;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    -webkit-box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-transition: background-color 0.2s, -webkit-transform 0.1s, -webkit-box-shadow 0.2s;
+    transition: background-color 0.2s, -webkit-transform 0.1s, -webkit-box-shadow 0.2s;
+    -o-transition: transform 0.1s, box-shadow 0.2s, background-color 0.2s;
+    transition: transform 0.1s, box-shadow 0.2s, background-color 0.2s;
+    transition: transform 0.1s, box-shadow 0.2s, background-color 0.2s, -webkit-transform 0.1s, -webkit-box-shadow 0.2s;
+}
+
+.button span::after {
+    content: "";
+    position: absolute;
+    top: -1em;
+    bottom: -1em;
+    left: -1em;
+    right: -1em;
+    border-radius: 4em;
+    -webkit-box-shadow: 0 0 0px rgba(0, 0, 0, 0.2), inset 0 0 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.2), inset 0 0 0px rgba(0, 0, 0, 0.2);
+    -webkit-transition: -webkit-box-shadow 0.1s;
+    transition: -webkit-box-shadow 0.1s;
+    -o-transition: box-shadow 0.1s;
+    transition: box-shadow 0.1s;
+    transition: box-shadow 0.1s, -webkit-box-shadow 0.1s;
+}
+
+.button:hover span,
+.button:focus span {
+    background-color: #ffffff;
+    color: #ffae18;
+}
+
+.button:active span {
+    background-color: #ffffff;
+    -webkit-transform: scale(0.97);
+    -ms-transform: scale(0.97);
+    transform: scale(0.97);
+    -webkit-box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.button:active span::after {
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), inset -3px 3px 1em rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), inset -3px 3px 1em rgba(0, 0, 0, 0.2);
+}
+
+.game {
+    height: 100vh;
+}
+
+.game-title {
+    margin: 100px 0 100px;
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+.game-hands {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+.game-options {
+    margin: 50px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+.score {
+    margin-top: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.score-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+}
+
+.score-count {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #333333;
+    width: 120px;
+    padding: 10px;
+    background: url(./img/figure.png) center, no-repeat;
+    background-size: cover;
+}
+
+.left {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
